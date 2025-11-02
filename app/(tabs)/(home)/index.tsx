@@ -13,7 +13,7 @@ function HomeScreen() {
   };
 
   const handleManualInputPress = () => {
-    router.push('/(tabs)/(home)/results?vin=');
+    router.push('/(tabs)/(home)/manual-input');
   };
 
   return (

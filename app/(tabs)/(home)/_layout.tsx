@@ -19,6 +19,14 @@ export default function HomeLayout() {
         }}
       />
       <Stack.Screen
+        name="manual-input"
+        options={{
+          headerShown: Platform.OS === 'ios',
+          title: 'Manual Input',
+          presentation: 'card',
+        }}
+      />
+      <Stack.Screen
         name="results"
         options={{
           headerShown: Platform.OS === 'ios',
