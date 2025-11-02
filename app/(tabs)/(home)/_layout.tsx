@@ -7,8 +7,23 @@ export default function HomeLayout() {
       <Stack.Screen
         name="index"
         options={{
-          headerShown: Platform.OS === 'ios', // Show header on iOS with NativeTabs, hide on Android/Web
-          title: 'Home'
+          headerShown: Platform.OS === 'ios',
+          title: 'VIN Scanner'
+        }}
+      />
+      <Stack.Screen
+        name="scanner"
+        options={{
+          headerShown: false,
+          presentation: 'fullScreenModal',
+        }}
+      />
+      <Stack.Screen
+        name="results"
+        options={{
+          headerShown: Platform.OS === 'ios',
+          title: 'Vehicle Details',
+          presentation: 'card',
         }}
       />
     </Stack>
