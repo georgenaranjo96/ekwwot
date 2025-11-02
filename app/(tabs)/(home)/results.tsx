@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
@@ -39,11 +39,7 @@ export default function ResultsScreen() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchVehicleData();
-  }, [vin]);
-
-  const fetchVehicleData = async () => {
+  const fetchVehicleData = useCallback(async () => {
     if (!vin) {
       setError('No VIN provided');
       setLoading(false);
@@ -78,7 +74,11 @@ export default function ResultsScreen() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [vin]);
+
+  useEffect(() => {
+    fetchVehicleData();
+  }, [fetchVehicleData]);
 
   const handleBookNow = async () => {
     // Replace with your actual Setmore booking URL
